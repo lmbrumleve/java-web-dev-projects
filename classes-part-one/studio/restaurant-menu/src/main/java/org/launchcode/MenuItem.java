@@ -56,4 +56,19 @@ public class MenuItem {
         this.newItem = newItem;
         this.date = date;
     }
+
+    public void printMenuItem() {
+        System.out.println(this.price);
+        System.out.println(this.description);
+        System.out.println(this.category);
+        System.out.println(this.newItem);
+        System.out.println(this.date);
+    }
+    public void compare(MenuItem item) {
+        if (this.description.equals(item.getDescription())) {
+            System.out.println("These two items are the same item.");
+        } else {
+            System.out.println("These two items are not the same item.");
+        };
+    }
 }
