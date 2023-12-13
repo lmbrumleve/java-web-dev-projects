@@ -45,6 +45,7 @@ public class Student {
         } else if (numberOfCredits >89) {
             gradeLevel = "Senior";
         }
+
         return gradeLevel;
     }
 
@@ -59,9 +60,36 @@ public class Student {
 
     // TODO: Add your custom 'toString' method here. Make sure it returns a well-formatted String rather
     //  than just the class fields.
+    @Override
+    public String toString() {
+//        String getReport = String.format("Name: %s", this.getName());
+//        return getReport;
+//            return "Name: " + name +
+//                    " Credits: " + numberOfCredits +
+//                    " GPA: " + gpa;
+            return "\n" + getName() +
+                    "\n" + numberOfCredits + " credits" +
+                    "\nGPA: " + gpa;
+    }
 
     // TODO: Add your custom 'equals' method here. Consider which fields should match in order to call two
     //  Student objects equal.
+    public boolean equals(Object toBeCompared) {
+        if (this == toBeCompared) {
+            return true;
+        }
+
+        if (toBeCompared == null) {
+            return false;
+        }
+
+        if (getClass() != toBeCompared.getClass()) {
+            return false;
+        }
+
+        Student theStudent = (Student) toBeCompared;
+        return theStudent.getStudentId() == getStudentId();
+    }
 
     public String getName() {
         return name;
@@ -97,11 +125,16 @@ public class Student {
 
     public static void main(String[] args) {
         Student sally = new Student("Sally",1,1,4.0);
-        System.out.println("The Student class works! " + sally.getName() + " is a student!");
-        System.out.println(sally);
-        sally.addGrade(12, 3.5);
-        System.out.println(sally);
-        sally.addGrade(25, 3.8);
-        System.out.println(sally);
+//        System.out.println("The Student class works! " + sally.getName() + " is a student!");
+//        System.out.println(sally);
+//        sally.addGrade(12, 3.5);
+//        System.out.println(sally);
+//        sally.addGrade(25, 3.8);
+//        System.out.println(sally);
+
+        Student violet = new Student("Violet", 2, 8, 3.5);
+        System.out.println(violet.toString());
+        System.out.println(violet.equals(sally));
     }
+
 }
